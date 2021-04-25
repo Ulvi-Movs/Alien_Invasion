@@ -19,22 +19,13 @@ class Alien(Sprite):
         self.image = pygame.image.load('images/hero.png')
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
-        self.rect.x = self.recr.width
+        self.rect.x = self.rect.width
         self.rect.y = self.rect.height
         self.x = float(self.rect.x)
-        
-        self.rect.top = self.screen_rect.top
-        self.moving_right = False
-        self.moving_left = False
-        
-    
-     # movement flags
-        self.moving_right = False
-        self.moving_left = False
-        
-        
-    
-    
+
+
+
+
     def update(self):
         '''update ship position'''
         if self.moving_right and self.rect.right < self.screen_rect.right:
@@ -44,6 +35,9 @@ class Alien(Sprite):
             self.center -= self.ai_settings.ship_speed_factor
     
         self.rect.centerx = self.center
+    
+    
+    
     
     def blitme(self):
         '''draw ship in posiction'''

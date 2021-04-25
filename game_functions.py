@@ -16,10 +16,10 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
         ship.moving_right = True
     elif event.key == pygame.K_LEFT:
         ship.moving_left = True
+        
     elif event.key == pygame.K_SPACE:
-        if len(bullets) < ai_settings.bullets_allowed:
-            new_bullet = Bullet(ai_settings, screen, ship)
-            bullets.add(new_bullet)
+        '''fire is on'''
+        fire_bullets(ai_settings, screen, ship, bullets)
         
 def check_keyup_events(event,ship):
     '''Moution to the left or right off'''
@@ -42,14 +42,28 @@ def check_events(ai_settings, screen, ship, bullets):
         elif event.type == pygame.KEYUP:
             check_keyup_events(event,ship)
         
+
          
-
-
-def update_screen(ai_settings, screen, ship, bullets):
+def update_screen(ai_settings, screen, ship, alien, bullets):
     '''update of screen image'''
     screen.fill(ai_settings.bg_color)
     for bullet in bullets.sprites():
         bullet.draw_bullet()
     ship.blitme()
+    alien.blitme()
     pygame.display.flip()
+
     
+    
+def bullets_update(bullets):
+    bullets.update()
+    for bullet in bullets.copy():
+            if bullet.rect.bottom <= 0:
+                bullets.remove(bullet)
+
+
+def fire_bullets(ai_settings, screen, ship, bullets):
+    '''fire algoritms'''
+    if len(bullets) < ai_settings.bullets_allowed:
+            new_bullet = Bullet(ai_settings, screen, ship)
+            bullets.add(new_bullet)
