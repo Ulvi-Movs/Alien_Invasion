@@ -6,12 +6,15 @@ Created on Thu Apr 22 11:02:27 2021
 """
 
 import pygame
+from pygame.sprite import Sprite
 
 
-class Ship():
+
+class Ship(Sprite):
     '''Initialazie of sheeps'''
     def __init__(self,ai_settings, screen):
         '''Download images for sip'''
+        super(Ship, self).__init__()
         self.screen = screen
         self.ai_settings = ai_settings
         self.image = pygame.image.load('images/12.png')
@@ -22,6 +25,7 @@ class Ship():
         self.moving_right = False
         self.moving_left = False
         self.center = float(self.rect.centerx)
+
         
         # movement flags
         self.moving_right = False
