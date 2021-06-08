@@ -20,7 +20,7 @@ def run_game():
     pygame.init()
     ai_settings = Settings()
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
-    pygame.display.set_caption("Alien Invasion")
+    pygame.display.set_caption("Space Wars")
     play_button = Button(ai_settings, screen, "Play")
     stats = GameStats(ai_settings)
     sb = Scoreboard(ai_settings, screen, stats)
