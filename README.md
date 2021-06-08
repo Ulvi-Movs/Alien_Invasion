@@ -1,5 +1,5 @@
 # Space_Wars
-Simple game in Python
+Simple Python game.
 In Space Wars, the player controls a ship that appears at the bottom center of the screen. 
 The player can move the ship right and left using the arrow keys and shoot bullets using the spacebar. 
 When the game begins, a fleet of aliens fills the sky and moves across and down the screen. 
